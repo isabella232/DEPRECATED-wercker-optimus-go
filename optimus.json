@@ -12,6 +12,6 @@
   "isPrivate" : false,
   "mainDetect" : [ {"files" : [".godir"]}],
   "supportDetect" : [],
-  "packageIgnore" : [],
+  "packageIgnore" :  [ ".idea", ".git", ".gitignore", ".gitmodules"],
   "priority" : 1000
 }
