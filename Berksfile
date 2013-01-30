@@ -1,6 +1,6 @@
 site :opscode
 
-cookbook 'berkshelf', git: 'https://github.com/wercker/berkshelf-cookbook.git'
+cookbook 'wercker-go', git: 'https://github.com/wercker/wercker-go-cookbook.git'
 
 cookbook 'apt'
 cookbook 'build-essential'
