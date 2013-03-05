@@ -7,12 +7,12 @@
           "cd $WERCKER_ROOT"
         ]}}],
   "dependencySteps" : [
-    {"name" : "install", "type" : "commands-step", "blocking" : false,
+    {"name" : "get", "type" : "commands-step", "blocking" : false,
       "options" : {
         "commands" : [
           "cd $WERCKER_ROOT",
           "go version",
-          "go install"
+          "go get ./"
         ]}}
   ],
   "testSteps" : [
