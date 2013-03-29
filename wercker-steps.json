@@ -3,7 +3,13 @@
     {"name" : "platform", "type" : "commands-step", "blocking" : true,
       "options" : {
         "commands" : [
-          "sudo chown ubuntu -R /build",
+          "mkdir $HOME/mygo",
+          "export GOPATH=$HOME/mygo",
+          "export PATH=$PATH:$GOPATH/bin",
+          "mkdir $GOPATH/bin",
+          "mkdir $GOPATH/src",
+          "mkdir $GOPATH/pkg",
+         "sudo chown ubuntu -R /build",
           "cd $WERCKER_ROOT"
         ]}}],
   "dependencySteps" : [
@@ -12,7 +18,7 @@
         "commands" : [
           "cd $WERCKER_ROOT",
           "go version",
-          "go get ./"
+          "go get ./..."
         ]}}
   ],
   "testSteps" : [
@@ -20,7 +26,7 @@
       "options" : {
         "commands" : [
           "cd $WERCKER_ROOT",
-          "go build"
+          "go build ./..."
         ]}},
     {"name" : "test", "type" : "commands-step", "blocking" : false,
       "options" : {
