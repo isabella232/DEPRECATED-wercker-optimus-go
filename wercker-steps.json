@@ -28,13 +28,13 @@
       "options" : {
         "commands" : [
           "cd $WERCKER_ROOT",
-          "go build ./..."
+          "go build ."
         ]}},
     {"name" : "test", "type" : "commands-step", "blocking" : false,
       "options" : {
         "commands" : [
           "cd $WERCKER_ROOT",
-          "go test ./..."
+          "go test ."
         ]}}
   ]
 }
