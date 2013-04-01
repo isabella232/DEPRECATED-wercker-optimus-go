@@ -10,8 +10,8 @@
           "export PATH=$PATH:$GOPATH/bin",
           "mkdir $GOPATH/bin",
           "mkdir $GOPATH/src",
-          "[ -z \"$GIT_SSH_DOMAIN\" ] && mkdir -p $GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/$GIT_SSH_PROJECT",
-          "[ -z \"$GIT_SSH_DOMAIN\" ] && cp -R ~/go_project/* $GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/$GIT_SSH_PROJECT/",
+          "if test \"${GIT_SSH_PROJECT+set}\" == set; then mkdir -p $GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/$GIT_SSH_PROJECT; fi",
+          "if test \"${GIT_SSH_PROJECT+set}\" == set; then cp -R ~/go_project/* $GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/$GIT_SSH_PROJECT/; fi",
           "mkdir $GOPATH/pkg",
          "sudo chown ubuntu -R /build",
           "cd $WERCKER_ROOT"
