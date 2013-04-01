@@ -3,17 +3,15 @@
     {"name" : "platform", "type" : "commands-step", "blocking" : true,
       "options" : {
         "commands" : [
+          "sudo chown ubuntu -R /build",
           "mkdir $HOME/mygo",
-          "mkdir ~/go_project/",
-          "cp -R * ~/go_project/",
           "export GOPATH=$HOME/mygo",
           "export PATH=$PATH:$GOPATH/bin",
           "mkdir $GOPATH/bin",
-          "mkdir $GOPATH/src",
-          "if test \"${GIT_SSH_PROJECT+set}\" == set; then mkdir -p $GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/$GIT_SSH_PROJECT; fi",
-          "if test \"${GIT_SSH_PROJECT+set}\" == set; then cp -R ~/go_project/* $GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/$GIT_SSH_PROJECT/; fi",
           "mkdir $GOPATH/pkg",
-         "sudo chown ubuntu -R /build",
+          "if test \"${GIT_SSH_PROJECT+set}\" == set; then mkdir -p $GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/; else ln -s /build $GOPATH/src; fi",
+          "if test \"${GIT_SSH_PROJECT+set}\" == set; then ln -s /build $GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/$GIT_SSH_PROJECT;  fi",
+          "if test \"${GIT_SSH_PROJECT+set}\" == set; then export WERCKER_ROOT=$GOPATH/src/$GIT_SSH_DOMAIN/$GIT_SSH_OWNER/$GIT_SSH_PROJECT; fi",
           "cd $WERCKER_ROOT"
         ]}}],
   "dependencySteps" : [
