@@ -5,7 +5,7 @@
         "commands" : [
           "sudo chown ubuntu -R /build",
           "mkdir $HOME/mygo",
-          "export GOPATH=$HOME/mygo",
+          "export GOPATH=`echo $HOME`/mygo",
           "export PATH=$PATH:$GOPATH/bin",
           "mkdir $GOPATH/bin",
           "mkdir $GOPATH/pkg",
